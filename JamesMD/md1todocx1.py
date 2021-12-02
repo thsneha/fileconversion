@@ -21,7 +21,7 @@ for folder in files:
         print(bookname)
         heading = doc.add_heading(bookname,level=1).alignment=1
         print(heading)
-        for folderin in sorted(nextpath):
+        for folderin in sorted(nextpath,reverse = True):
             fin = glob.glob(folderin)
             for fl in sorted(fin):
                 title = fl.split("\\")[-3:]
@@ -57,7 +57,7 @@ for folder in files:
                         cells[2].text = ''
                         count+=1
                         doc.add_paragraph('')
-                    doc.add_page_break()
+                doc.add_page_break()
 
         doc.save(bookname+ '.docx' )
         print("saved")
